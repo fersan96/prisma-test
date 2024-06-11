@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Blocks {
+  id                       String   @id @default(uuid())
+  type                     String
+  revision_created         DateTime
+  info                     String
+  changed                  DateTime
+  metatag                  String[]
+  field_configuration_type String
+  field_principal_content  String
+  field_tipo_grid_ahg      String?
+  field_title_block        String
+  field_visual_mode        String
+  field_with_line          String
+  field_add_title          String
+}
